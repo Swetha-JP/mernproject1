@@ -21,11 +21,7 @@ api.interceptors.request.use(
       config.headers.Authorization = `Bearer ${token}`;
     }
     
-    // Add CSRF token for non-GET requests
-    if (config.method !== 'get') {
-      const csrfToken = storage.get('csrf_token') || 'default-csrf-token';
-      config.headers['X-CSRF-Token'] = csrfToken;
-    }
+
     
     return config;
   },

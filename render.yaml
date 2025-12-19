@@ -11,14 +11,12 @@ services:
         value: mongodb+srv://swetha:sswetha123@mernproject.fwp2kyj.mongodb.net/?appName=mernproject
       - key: JWT_SECRET
         value: a8f5f167f44f4964e6c998dee827110c
-      - key: PORT
-        value: 10000
 
   - type: web
     name: recharge-frontend
-    env: static
+    env: node
     buildCommand: cd frontend && npm install && npm run build
-    staticPublishPath: ./frontend/build
+    startCommand: cd frontend && npx serve -s build -l 3000
     envVars:
       - key: REACT_APP_API_URL
         value: https://recharge-backend.onrender.com

@@ -30,10 +30,10 @@
    - `JWT_SECRET=a8f5f167f44f4964e6c998dee827110c`
 
 #### Frontend Deployment:
-1. Create new Static Site on Render
+1. Create new Web Service on Render
 2. Connect same GitHub repository
 3. Set build command: `cd frontend && npm install && npm run build`
-4. Set publish directory: `frontend/build`
+4. Set start command: `cd frontend && npx serve -s build -l 3000`
 5. Add environment variable:
    - `REACT_APP_API_URL=https://your-backend-url.onrender.com`
 

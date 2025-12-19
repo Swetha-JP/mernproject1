@@ -19,4 +19,4 @@ services:
     startCommand: cd frontend && npx serve -s build -l 3000
     envVars:
       - key: REACT_APP_API_URL
-        value: https://recharge-backend.onrender.com
+        value: https://mernproject1-backend.onrender.com

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test API</title>
+</head>
+<body>
+    <h1>API Test</h1>
+    <button onclick="testBackend()">Test Backend</button>
+    <button onclick="testRegistration()">Test Registration</button>
+    <div id="result"></div>
+
+    <script>
+        async function testBackend() {
+            try {
+                const response = await fetch('https://mernproject1-backend.onrender.com/api');
+                const data = await response.json();
+                document.getElementById('result').innerHTML = 'Backend: ' + JSON.stringify(data);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Backend Error: ' + error.message;
+            }
+        }
+
+        async function testRegistration() {
+            try {
+                const response = await fetch('https://mernproject1-backend.onrender.com/api/auth/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: 'Test User',
+                        email: 'test@test.com',
+                        password: 'test123',
+                        phone: '9876543210'
+                    })
+                });
+                const data = await response.json();
+                document.getElementById('result').innerHTML = 'Registration: ' + JSON.stringify(data);
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Registration Error: ' + error.message;
+            }
+        }
+    </script>
+</body>
+</html>

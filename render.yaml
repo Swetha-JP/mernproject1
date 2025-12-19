@@ -1,9 +1,10 @@
 services:
   - type: web
-    name: recharge-backend
+    name: mernproject1-backend
     env: node
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
@@ -13,10 +14,11 @@ services:
         value: a8f5f167f44f4964e6c998dee827110c
 
   - type: web
-    name: recharge-frontend
+    name: mernproject1-frontend
     env: node
-    buildCommand: cd frontend && npm install && npm run build
-    startCommand: cd frontend && npx serve -s build -l 3000
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npx serve -s build -l 3000
     envVars:
       - key: REACT_APP_API_URL
         value: https://mernproject1-backend.onrender.com

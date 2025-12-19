@@ -56,6 +56,8 @@ app.get('/', (req, res) => {
 app.get('/api', (req, res) => {
   res.json({ 
     message: 'RechargeHub API v1.0',
+    status: 'running',
+    timestamp: new Date().toISOString(),
     endpoints: {
       auth: '/api/auth',
       users: '/api/users',
@@ -65,6 +67,10 @@ app.get('/api', (req, res) => {
       offers: '/api/offers'
     }
   });
+});
+
+app.get('/api/test', (req, res) => {
+  res.json({ message: 'Backend is working!', timestamp: new Date().toISOString() });
 });
 
 // MongoDB Connection (Local)

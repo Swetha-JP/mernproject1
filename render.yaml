@@ -8,7 +8,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
-        value: mongodb+srv://swetha:sswetha123@mernproject.fwp2kyj.mongodb.net/?appName=mernproject
+        value: mongodb+srv://swetha:swetha123@mernproject.fwp2kyj.mongodb.net/?appName=mernproject
       - key: JWT_SECRET
         value: a8f5f167f44f4964e6c998dee827110c
 

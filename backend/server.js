@@ -70,7 +70,7 @@ app.get('/api', (req, res) => {
 });
 
 // MongoDB Connection (Local)
-mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://swetha:sswetha123@mernproject.fwp2kyj.mongodb.net/?appName=mernproject')
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://swetha:swetha123@mernproject.fwp2kyj.mongodb.net/?appName=mernproject')
   .then(() => console.log('MongoDB connected locally'))
   .catch(err => console.log('MongoDB connection error:', err));
 

@@ -8,7 +8,17 @@ const router = express.Router();
 // Register
 router.post('/register', async (req, res) => {
   try {
+    console.log('Registration request received:', req.body);
     const { name, email, password, phone, address } = req.body;
+
+    // Validation
+    if (!name || !email || !password || !phone) {
+      return res.status(400).json({ message: 'All required fields must be provided' });
+    }
+
+    if (password.length < 6) {
+      return res.status(400).json({ message: 'Password must be at least 6 characters' });
+    }
 
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -20,11 +30,12 @@ router.post('/register', async (req, res) => {
       email,
       password,
       phone,
-      address,
+      address: address || '',
       role: req.body.role || 'user'
     });
 
     await user.save();
+    console.log('User created successfully:', user.email);
 
     const token = generateToken(user._id);
 
@@ -46,6 +57,7 @@ router.post('/register', async (req, res) => {
       token
     });
   } catch (error) {
+    console.error('Registration error:', error);
     res.status(500).json({ message: error.message });
   }
 });

@@ -6,9 +6,7 @@ import {
   Lock, 
   Eye, 
   EyeOff, 
-  Smartphone, 
-  User,
-  UserCheck
+  Smartphone
 } from 'lucide-react';
 
 const Login = ({ onSwitchToRegister }) => {
@@ -44,17 +42,7 @@ const Login = ({ onSwitchToRegister }) => {
     setLoading(false);
   };
 
-  const demoCredentials = [
-    { email: 'admin@rechargehub.com', password: 'admin123', role: 'Admin' },
-    { email: 'user@example.com', password: 'user123', role: 'User' }
-  ];
 
-  const fillDemoCredentials = (credentials) => {
-    setFormData({
-      email: credentials.email,
-      password: credentials.password
-    });
-  };
 
   return (
     <motion.div
